@@ -7,19 +7,38 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 };
 
-const arr = [
-    {
-        id: 0,
-        name: "Sunrise",
-        value:  this.weather && this.weather.sys && this.weather.sys.sunrise 
-    },
-    {
-        id: 1,
-        name: "Sunset",
-        // value: this.weather.sys.sunset
-        value: ""
-    },
-]
+// const arr = [
+//     {
+//         id: 1,
+//         name: "Sunrise",
+//         value: "4:45"
+//     },
+//     {
+//         id: 2,
+//         name: "Sunset",
+//         value: "19:48"
+//     },
+//     {
+//         id: 3,
+//         name: "Wind",
+//         value: "s 5 km\h"
+//     },
+//     {
+//         id: 4,
+//         name: "Feels like",
+//         value: "-4"
+//     },
+//     {
+//         id: 5,
+//         name: "Visibulity",
+//         value: "16 km"
+//     },
+//     {
+//         id: 6,
+//         name: "UV index",
+//         value: "2"
+//     },
+// ]
 
 function App() {
     const [query, setQuery] = useState("");
@@ -88,7 +107,6 @@ function App() {
                     <div className="weather-info">
                         <p className="date">{dateBuilder(new Date())}</p>
                         <p className="location">{weather.name}, {weather.sys.country}</p>
-                        <p>{airPollution.list[0].main.aqi}</p>
                     </div>
 
                     <div className="air-pollution">
@@ -100,15 +118,72 @@ function App() {
                         />
                     </div>
 
-                    <div className="detailed-weather-info">
+                    <div className="detailed-weather-info" style={{ margin: "0 0 400px 0" }}>
 
-                        <div></div>
+                        <div className="detailed-info info">
+                            {/* <div>
+                                {arr.map(d => (
+                                    <p className="detailed-info__name" key={d.id}>{d.name}
+                                        <span style={{ display: "block" }} className="detailed-info__value">{d.value}</span>
+                                    </p>
+                                ))}
+                            </div> */}
 
-                        <ul>
-                            {arr.map(d => (
-                                <li key={d.id}>{d.name}, {d.value}</li>
-                            ))}
-                        </ul>
+                            <div className="info-row">
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Sunrise
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        {weather.sys.sunrise}
+                                    </p>
+                                </div>
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Sunset
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        {weather.sys.sunset}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="info-row">
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Wind speed
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        {weather.wind.speed}
+                                    </p>
+                                </div>
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Visibility
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        {weather.sys.visibility}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="info-row">
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Sunrise
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        5:43
+                                    </p>
+                                </div>
+                                <div className="info-row-desc">
+                                    <p className="info-row-desc__name">
+                                        Sunset
+                                    </p>
+                                    <p className="info-row-desc__value">
+                                        6:00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

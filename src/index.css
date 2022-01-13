@@ -105,3 +105,33 @@ main {
 .air-pollution__title {
   margin: 10px 0;
 }
+
+.detailed-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.info-row-desc__name {
+  color: #c7c2c2;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.info-row-desc__value {
+  display: block;
+  color: black;
+  font-size: 22px;
+}
